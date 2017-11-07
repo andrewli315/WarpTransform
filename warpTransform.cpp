@@ -63,11 +63,6 @@ void MouseEvent(int event,int x,int y,int flags,void* param )
                 ((uchar*)(temp->imageData + i*temp->widthStep))[j] =  ((uchar*)(image->imageData + i*image->widthStep))[j];
                 ((uchar*)(temp->imageData + i*temp->widthStep))[j+1] =  ((uchar*)(image->imageData + i*image->widthStep))[j+1];
                 ((uchar*)(temp->imageData + i*temp->widthStep))[j+2] =  ((uchar*)(image->imageData + i*image->widthStep))[j+2];
-                /*
-                CvScalar s;
-                s = cvGet2D(image,i,j);
-                cvSet2D(temp,i,j,s);
-                */
             }
         }
         //create result image object
@@ -107,5 +102,4 @@ void MouseEvent(int event,int x,int y,int flags,void* param )
         cvReleaseImage(&result);
         cvDestroyWindow("Result");
     }
-
 }
