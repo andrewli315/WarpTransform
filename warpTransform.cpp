@@ -7,6 +7,7 @@ using namespace cv;
 int coord_x[4];
 int coord_y[4];
 int cnt = 0;
+IplImage* point;
 IplImage* temp;
 IplImage* result;
 void MouseEvent(int,int,int,int,void*);
@@ -19,6 +20,8 @@ int main(void)
         cout << "Can not find this file" << endl;
         return 1;
     }
+    point = cvCreateImage(cvSize(image->width,image->height),IPL_DEPTH_8U,3);
+    cvCopy(image,point,NULL);
     cvNamedWindow("origin",CV_WINDOW_AUTOSIZE);
     setMouseCallback("origin",MouseEvent,image);
     cvShowImage("origin",image);
@@ -34,6 +37,9 @@ void MouseEvent(int event,int x,int y,int flags,void* param )
     {
         cout << "x : " << x << endl;
         cout << "y : " << y << endl;
+        CvPoint pt = cvPoint(x,y);
+        cvCircle(point,pt,3,CV_RGB(255,0,0),5);
+        cvShowImage("origin",point);
         coord_x[cnt] = x;
         coord_y[cnt] = y;
         cnt++;
