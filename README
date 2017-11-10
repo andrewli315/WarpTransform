@@ -1,0 +1,12 @@
+Intro:
+    using Warp Perspective Transformation to get the original image
+    (straighten the image)
+Requirement:
+    Ubuntu      16.04 LTS
+    opencv      3.1.0
+    gcc         5.4.0
+Compile:
+    g++ -o t test.cpp -I /usr/local/include/opencv2/ -L /usr/lib/ -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs  -lopencv_highgui
+    
+
+
